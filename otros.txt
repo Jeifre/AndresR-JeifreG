@@ -1,0 +1,27 @@
+uth required pam_access.so
+auth required pam_unix.so
+account required pam_unix.so
+session required pam_permit.so
+
+
+
+
+
+
+#-:ALL:ALL
+-:pedro:ALL
++:maria:ALL
++:juan:ALL
+
+
+
+
+
+<Directory "/var/www/html/archivos_privados">
+    AuthType Basic
+    AuthName "Acceso Restringido"
+    AuthBasicProvider PAM
+    AuthPAMService apache2
+    Require valid-user
+</Directory>
+
